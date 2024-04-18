@@ -79,6 +79,50 @@ namespace OOP2_POS
             };
         }
 
+        private void GetAllProducts()
+        {
+            List<string> productList = new List<string>();
+
+            string dbSource = @"BIODOTA\SQLEXPRESS";
+            string db = "POS";
+            string connString = @"Data Source=" + dbSource + ";Initial Catalog=" + db + ";Integrated Security=True;";
+
+            string query = "SELECT Description, Price, Quantity FROM POS_Items";
+
+            using (SqlConnection connection = new SqlConnection(connString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+
+                    try
+                    {
+                        connection.Open();
+                        SqlDataReader reader = command.ExecuteReader();
+
+
+                        if (reader.HasRows)
+                        {
+
+                            while (reader.Read())
+                            {
+                                string productName = reader.GetString(0);
+                                string productPrice = reader.GetString(1);
+                                string productQuantity = reader.GetString(2);
+                                itemName.Add(productName);
+                                itemPrice.Add(productPrice);
+                                itemQuantity.Add(productQuantity);
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
+                }
+            }
+
+
+        }
 
         private void GetProductsInCategory(string category)
         {
@@ -128,10 +172,5 @@ namespace OOP2_POS
         }
 
         
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

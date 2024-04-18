@@ -30,6 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminForm));
             this.sidePanel = new System.Windows.Forms.Panel();
+            this.roundedPanel1 = new RoundedPanel();
+            this.button8 = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -40,24 +45,6 @@
             this.dashboardButton = new System.Windows.Forms.Button();
             this.adminTabControl = new System.Windows.Forms.TabControl();
             this.dashTabPage = new System.Windows.Forms.TabPage();
-            this.label2 = new System.Windows.Forms.Label();
-            this.usersTabPage = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.settingsTabPage = new System.Windows.Forms.TabPage();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.addItemButton = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label6 = new System.Windows.Forms.Label();
             this.roundedPanel5 = new RoundedPanel();
             this.listView2 = new System.Windows.Forms.ListView();
             this.label19 = new System.Windows.Forms.Label();
@@ -73,23 +60,46 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.roundedPanel1 = new RoundedPanel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.usersTabPage = new System.Windows.Forms.TabPage();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
+            this.userListView = new System.Windows.Forms.ListView();
+            this.button14 = new System.Windows.Forms.Button();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.settingsTabPage = new System.Windows.Forms.TabPage();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.addItemButton = new System.Windows.Forms.Button();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label6 = new System.Windows.Forms.Label();
             this.sidePanel.SuspendLayout();
+            this.roundedPanel1.SuspendLayout();
             this.adminTabControl.SuspendLayout();
             this.dashTabPage.SuspendLayout();
-            this.usersTabPage.SuspendLayout();
-            this.settingsTabPage.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.tabPage1.SuspendLayout();
             this.roundedPanel5.SuspendLayout();
             this.roundedPanel4.SuspendLayout();
             this.roundedPanel3.SuspendLayout();
             this.roundedPanel2.SuspendLayout();
-            this.roundedPanel1.SuspendLayout();
+            this.usersTabPage.SuspendLayout();
+            this.settingsTabPage.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // sidePanel
@@ -108,6 +118,66 @@
             this.sidePanel.Name = "sidePanel";
             this.sidePanel.Size = new System.Drawing.Size(205, 686);
             this.sidePanel.TabIndex = 0;
+            // 
+            // roundedPanel1
+            // 
+            this.roundedPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(100)))), ((int)(((byte)(200)))));
+            this.roundedPanel1.BorderRadius = 20;
+            this.roundedPanel1.Controls.Add(this.button8);
+            this.roundedPanel1.Controls.Add(this.label20);
+            this.roundedPanel1.Controls.Add(this.label8);
+            this.roundedPanel1.Controls.Add(this.label9);
+            this.roundedPanel1.Location = new System.Drawing.Point(15, 564);
+            this.roundedPanel1.Name = "roundedPanel1";
+            this.roundedPanel1.Size = new System.Drawing.Size(185, 57);
+            this.roundedPanel1.TabIndex = 1;
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.Transparent;
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
+            this.button8.Location = new System.Drawing.Point(0, 5);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(46, 49);
+            this.button8.TabIndex = 2;
+            this.button8.UseVisualStyleBackColor = false;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Image = ((System.Drawing.Image)(resources.GetObject("label20.Image")));
+            this.label20.Location = new System.Drawing.Point(-7, 21);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(0, 13);
+            this.label20.TabIndex = 10;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(40, 0);
+            this.label8.Name = "label8";
+            this.label8.Padding = new System.Windows.Forms.Padding(8);
+            this.label8.Size = new System.Drawing.Size(143, 34);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "Jamesmyer Ge.";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(40, 23);
+            this.label9.Name = "label9";
+            this.label9.Padding = new System.Windows.Forms.Padding(8);
+            this.label9.Size = new System.Drawing.Size(65, 34);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "Admin";
             // 
             // button3
             // 
@@ -248,11 +318,11 @@
             this.adminTabControl.Controls.Add(this.settingsTabPage);
             this.adminTabControl.Controls.Add(this.tabPage2);
             this.adminTabControl.Controls.Add(this.tabPage1);
-            this.adminTabControl.Location = new System.Drawing.Point(203, -22);
+            this.adminTabControl.Location = new System.Drawing.Point(203, 12);
             this.adminTabControl.Name = "adminTabControl";
             this.adminTabControl.Padding = new System.Drawing.Point(0, 0);
             this.adminTabControl.SelectedIndex = 0;
-            this.adminTabControl.Size = new System.Drawing.Size(1066, 704);
+            this.adminTabControl.Size = new System.Drawing.Size(1066, 670);
             this.adminTabControl.TabIndex = 1;
             // 
             // dashTabPage
@@ -267,192 +337,9 @@
             this.dashTabPage.Location = new System.Drawing.Point(4, 22);
             this.dashTabPage.Name = "dashTabPage";
             this.dashTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.dashTabPage.Size = new System.Drawing.Size(1058, 678);
+            this.dashTabPage.Size = new System.Drawing.Size(1058, 644);
             this.dashTabPage.TabIndex = 0;
             this.dashTabPage.Text = "tabPage1";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(77, 31);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(147, 25);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "DASHBOARD";
-            // 
-            // usersTabPage
-            // 
-            this.usersTabPage.Controls.Add(this.textBox1);
-            this.usersTabPage.Controls.Add(this.label3);
-            this.usersTabPage.Location = new System.Drawing.Point(4, 22);
-            this.usersTabPage.Name = "usersTabPage";
-            this.usersTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.usersTabPage.Size = new System.Drawing.Size(1058, 678);
-            this.usersTabPage.TabIndex = 1;
-            this.usersTabPage.Text = "tabPage2";
-            this.usersTabPage.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(18, 36);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(402, 23);
-            this.textBox1.TabIndex = 1;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(13, 7);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 25);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "USERS";
-            // 
-            // settingsTabPage
-            // 
-            this.settingsTabPage.Controls.Add(this.button7);
-            this.settingsTabPage.Controls.Add(this.button6);
-            this.settingsTabPage.Controls.Add(this.button5);
-            this.settingsTabPage.Controls.Add(this.button4);
-            this.settingsTabPage.Controls.Add(this.addItemButton);
-            this.settingsTabPage.Controls.Add(this.listView1);
-            this.settingsTabPage.Controls.Add(this.button2);
-            this.settingsTabPage.Controls.Add(this.textBox2);
-            this.settingsTabPage.Controls.Add(this.label4);
-            this.settingsTabPage.Location = new System.Drawing.Point(4, 22);
-            this.settingsTabPage.Name = "settingsTabPage";
-            this.settingsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.settingsTabPage.Size = new System.Drawing.Size(1058, 678);
-            this.settingsTabPage.TabIndex = 2;
-            this.settingsTabPage.Text = "tabPage1";
-            this.settingsTabPage.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(492, 281);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(100, 26);
-            this.button7.TabIndex = 8;
-            this.button7.Text = "MOVE DOWN";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(492, 226);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(100, 26);
-            this.button6.TabIndex = 7;
-            this.button6.Text = "MOVE UP";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(492, 175);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(100, 26);
-            this.button5.TabIndex = 6;
-            this.button5.Text = "EDIT";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(492, 125);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(100, 26);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "REMOVE";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // addItemButton
-            // 
-            this.addItemButton.Location = new System.Drawing.Point(492, 79);
-            this.addItemButton.Name = "addItemButton";
-            this.addItemButton.Size = new System.Drawing.Size(100, 26);
-            this.addItemButton.TabIndex = 4;
-            this.addItemButton.Text = "ADD";
-            this.addItemButton.UseVisualStyleBackColor = true;
-            this.addItemButton.Click += new System.EventHandler(this.addItemButton_Click);
-            // 
-            // listView1
-            // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(18, 79);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(457, 338);
-            this.listView1.TabIndex = 3;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(375, 40);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 26);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "SEARCH";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(18, 42);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(351, 23);
-            this.textBox2.TabIndex = 1;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(13, 7);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(79, 25);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "ITEMS";
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.label5);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1058, 678);
-            this.tabPage2.TabIndex = 3;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(13, 7);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(72, 25);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "LOGS";
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.label6);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1058, 678);
-            this.tabPage1.TabIndex = 4;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(13, 7);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(121, 25);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "SETTINGS";
             // 
             // roundedPanel5
             // 
@@ -618,65 +505,276 @@
             this.label10.TabIndex = 0;
             this.label10.Text = "2 345";
             // 
-            // roundedPanel1
+            // label2
             // 
-            this.roundedPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(100)))), ((int)(((byte)(200)))));
-            this.roundedPanel1.BorderRadius = 20;
-            this.roundedPanel1.Controls.Add(this.button8);
-            this.roundedPanel1.Controls.Add(this.label20);
-            this.roundedPanel1.Controls.Add(this.label8);
-            this.roundedPanel1.Controls.Add(this.label9);
-            this.roundedPanel1.Location = new System.Drawing.Point(15, 564);
-            this.roundedPanel1.Name = "roundedPanel1";
-            this.roundedPanel1.Size = new System.Drawing.Size(185, 57);
-            this.roundedPanel1.TabIndex = 1;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(77, 31);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(147, 25);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "DASHBOARD";
             // 
-            // label8
+            // usersTabPage
             // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(40, 0);
-            this.label8.Name = "label8";
-            this.label8.Padding = new System.Windows.Forms.Padding(8);
-            this.label8.Size = new System.Drawing.Size(143, 34);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "Jamesmyer Ge.";
+            this.usersTabPage.Controls.Add(this.button9);
+            this.usersTabPage.Controls.Add(this.button10);
+            this.usersTabPage.Controls.Add(this.button11);
+            this.usersTabPage.Controls.Add(this.button12);
+            this.usersTabPage.Controls.Add(this.button13);
+            this.usersTabPage.Controls.Add(this.userListView);
+            this.usersTabPage.Controls.Add(this.button14);
+            this.usersTabPage.Controls.Add(this.textBox3);
+            this.usersTabPage.Controls.Add(this.label3);
+            this.usersTabPage.Location = new System.Drawing.Point(4, 22);
+            this.usersTabPage.Name = "usersTabPage";
+            this.usersTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.usersTabPage.Size = new System.Drawing.Size(1058, 644);
+            this.usersTabPage.TabIndex = 1;
+            this.usersTabPage.Text = "tabPage2";
+            this.usersTabPage.UseVisualStyleBackColor = true;
             // 
-            // label9
+            // button9
             // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(40, 23);
-            this.label9.Name = "label9";
-            this.label9.Padding = new System.Windows.Forms.Padding(8);
-            this.label9.Size = new System.Drawing.Size(65, 34);
-            this.label9.TabIndex = 9;
-            this.label9.Text = "Admin";
+            this.button9.Location = new System.Drawing.Point(492, 291);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(100, 26);
+            this.button9.TabIndex = 17;
+            this.button9.Text = "MOVE DOWN";
+            this.button9.UseVisualStyleBackColor = true;
             // 
-            // label20
+            // button10
             // 
-            this.label20.AutoSize = true;
-            this.label20.Image = ((System.Drawing.Image)(resources.GetObject("label20.Image")));
-            this.label20.Location = new System.Drawing.Point(-7, 21);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(0, 13);
-            this.label20.TabIndex = 10;
+            this.button10.Location = new System.Drawing.Point(492, 236);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(100, 26);
+            this.button10.TabIndex = 16;
+            this.button10.Text = "MOVE UP";
+            this.button10.UseVisualStyleBackColor = true;
             // 
-            // button8
+            // button11
             // 
-            this.button8.BackColor = System.Drawing.Color.Transparent;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
-            this.button8.Location = new System.Drawing.Point(0, 5);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(46, 49);
-            this.button8.TabIndex = 2;
-            this.button8.UseVisualStyleBackColor = false;
+            this.button11.Location = new System.Drawing.Point(492, 185);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(100, 26);
+            this.button11.TabIndex = 15;
+            this.button11.Text = "EDIT";
+            this.button11.UseVisualStyleBackColor = true;
+            // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(492, 135);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(100, 26);
+            this.button12.TabIndex = 14;
+            this.button12.Text = "REMOVE";
+            this.button12.UseVisualStyleBackColor = true;
+            // 
+            // button13
+            // 
+            this.button13.Location = new System.Drawing.Point(492, 89);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(100, 26);
+            this.button13.TabIndex = 13;
+            this.button13.Text = "ADD";
+            this.button13.UseVisualStyleBackColor = true;
+            // 
+            // userListView
+            // 
+            this.userListView.HideSelection = false;
+            this.userListView.Location = new System.Drawing.Point(18, 89);
+            this.userListView.Name = "userListView";
+            this.userListView.Size = new System.Drawing.Size(457, 338);
+            this.userListView.TabIndex = 12;
+            this.userListView.UseCompatibleStateImageBehavior = false;
+            this.userListView.View = System.Windows.Forms.View.Details;
+            // 
+            // button14
+            // 
+            this.button14.Location = new System.Drawing.Point(375, 50);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(100, 26);
+            this.button14.TabIndex = 11;
+            this.button14.Text = "SEARCH";
+            this.button14.UseVisualStyleBackColor = true;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(18, 52);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(351, 23);
+            this.textBox3.TabIndex = 10;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(13, 7);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(85, 25);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "USERS";
+            // 
+            // settingsTabPage
+            // 
+            this.settingsTabPage.Controls.Add(this.button7);
+            this.settingsTabPage.Controls.Add(this.button6);
+            this.settingsTabPage.Controls.Add(this.button5);
+            this.settingsTabPage.Controls.Add(this.button4);
+            this.settingsTabPage.Controls.Add(this.addItemButton);
+            this.settingsTabPage.Controls.Add(this.listView1);
+            this.settingsTabPage.Controls.Add(this.button2);
+            this.settingsTabPage.Controls.Add(this.textBox2);
+            this.settingsTabPage.Controls.Add(this.label4);
+            this.settingsTabPage.Location = new System.Drawing.Point(4, 22);
+            this.settingsTabPage.Name = "settingsTabPage";
+            this.settingsTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.settingsTabPage.Size = new System.Drawing.Size(1058, 644);
+            this.settingsTabPage.TabIndex = 2;
+            this.settingsTabPage.Text = "tabPage1";
+            this.settingsTabPage.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(492, 281);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(100, 26);
+            this.button7.TabIndex = 8;
+            this.button7.Text = "MOVE DOWN";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(492, 226);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(100, 26);
+            this.button6.TabIndex = 7;
+            this.button6.Text = "MOVE UP";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(492, 175);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(100, 26);
+            this.button5.TabIndex = 6;
+            this.button5.Text = "EDIT";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(492, 125);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(100, 26);
+            this.button4.TabIndex = 5;
+            this.button4.Text = "REMOVE";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // addItemButton
+            // 
+            this.addItemButton.Location = new System.Drawing.Point(492, 79);
+            this.addItemButton.Name = "addItemButton";
+            this.addItemButton.Size = new System.Drawing.Size(100, 26);
+            this.addItemButton.TabIndex = 4;
+            this.addItemButton.Text = "ADD";
+            this.addItemButton.UseVisualStyleBackColor = true;
+            this.addItemButton.Click += new System.EventHandler(this.addItemButton_Click);
+            // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3});
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(18, 79);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(457, 338);
+            this.listView1.TabIndex = 3;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Description";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Price";
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Quantity";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(375, 40);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(100, 26);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "SEARCH";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(18, 42);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(351, 23);
+            this.textBox2.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(13, 7);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(79, 25);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "ITEMS";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.label5);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1058, 644);
+            this.tabPage2.TabIndex = 3;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(13, 7);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(72, 25);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "LOGS";
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.label6);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1058, 644);
+            this.tabPage1.TabIndex = 4;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(13, 7);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(121, 25);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "SETTINGS";
             // 
             // AdminForm
             // 
@@ -690,17 +788,11 @@
             this.Text = "AdminForm";
             this.sidePanel.ResumeLayout(false);
             this.sidePanel.PerformLayout();
+            this.roundedPanel1.ResumeLayout(false);
+            this.roundedPanel1.PerformLayout();
             this.adminTabControl.ResumeLayout(false);
             this.dashTabPage.ResumeLayout(false);
             this.dashTabPage.PerformLayout();
-            this.usersTabPage.ResumeLayout(false);
-            this.usersTabPage.PerformLayout();
-            this.settingsTabPage.ResumeLayout(false);
-            this.settingsTabPage.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
             this.roundedPanel5.ResumeLayout(false);
             this.roundedPanel5.PerformLayout();
             this.roundedPanel4.ResumeLayout(false);
@@ -709,8 +801,14 @@
             this.roundedPanel3.PerformLayout();
             this.roundedPanel2.ResumeLayout(false);
             this.roundedPanel2.PerformLayout();
-            this.roundedPanel1.ResumeLayout(false);
-            this.roundedPanel1.PerformLayout();
+            this.usersTabPage.ResumeLayout(false);
+            this.usersTabPage.PerformLayout();
+            this.settingsTabPage.ResumeLayout(false);
+            this.settingsTabPage.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -733,7 +831,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button addItemButton;
@@ -766,5 +863,16 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.ListView userListView;
+        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }
