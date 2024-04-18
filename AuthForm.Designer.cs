@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AuthForm));
             this.LoginPanel = new System.Windows.Forms.Panel();
+            this.samplethis = new System.Windows.Forms.Label();
             this.passWrongPassword = new System.Windows.Forms.Label();
             this.userInvalidInput = new System.Windows.Forms.Label();
             this.passErrorIcon = new System.Windows.Forms.PictureBox();
@@ -69,7 +70,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.regEmailInput = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.samplethis = new System.Windows.Forms.Label();
             this.LoginPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.passErrorIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userInvalidInputIcon)).BeginInit();
@@ -106,6 +106,15 @@
             this.LoginPanel.Name = "LoginPanel";
             this.LoginPanel.Size = new System.Drawing.Size(504, 453);
             this.LoginPanel.TabIndex = 0;
+            // 
+            // samplethis
+            // 
+            this.samplethis.AutoSize = true;
+            this.samplethis.Location = new System.Drawing.Point(133, 29);
+            this.samplethis.Name = "samplethis";
+            this.samplethis.Size = new System.Drawing.Size(35, 13);
+            this.samplethis.TabIndex = 14;
+            this.samplethis.Text = "label8";
             // 
             // passWrongPassword
             // 
@@ -532,15 +541,6 @@
             this.label14.Size = new System.Drawing.Size(310, 44);
             this.label14.TabIndex = 0;
             this.label14.Text = "Create an Account";
-            // 
-            // samplethis
-            // 
-            this.samplethis.AutoSize = true;
-            this.samplethis.Location = new System.Drawing.Point(133, 29);
-            this.samplethis.Name = "samplethis";
-            this.samplethis.Size = new System.Drawing.Size(35, 13);
-            this.samplethis.TabIndex = 14;
-            this.samplethis.Text = "label8";
             // 
             // AuthForm
             // 

@@ -17,19 +17,22 @@ namespace OOP2_POS
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             AuthForm authForm = new AuthForm();
-            if (authForm.ShowDialog() == DialogResult.OK)
-            {
-                if (authForm.UserRole == "Admin")
-                {
-                    Application.Run(new AdminForm());
-                }
-                else
-                {
-                    Application.Run(new MemberForm());
-                }
-               
-            }
-       
+
+            Application.Run(new MemberForm());
+
+            /*   if (authForm.ShowDialog() == DialogResult.OK)
+               {
+                   if (authForm.UserRole == "Admin")
+                   {
+                       Application.Run(new AdminForm());
+                   }
+                   else
+                   {
+                       Application.Run(new MemberForm());
+                   }
+
+               }*/
+
         }
     }
 }

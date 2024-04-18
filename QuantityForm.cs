@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace OOP2_POS
 {
-    public partial class Form1 : Form
+    public partial class QuantityForm : Form
     {
-        public Form1()
+        public QuantityForm()
         {
             InitializeComponent();
         }

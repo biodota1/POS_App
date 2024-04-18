@@ -38,6 +38,8 @@
             this.employeeTabControl = new System.Windows.Forms.TabControl();
             this.cashierTab = new System.Windows.Forms.TabPage();
             this.CalculationPanel = new System.Windows.Forms.Panel();
+            this.handleQuantity = new System.Windows.Forms.Button();
+            this.handlePrintReceipt = new System.Windows.Forms.Button();
             this.totalCostLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -197,6 +199,8 @@
             // 
             // CalculationPanel
             // 
+            this.CalculationPanel.Controls.Add(this.handleQuantity);
+            this.CalculationPanel.Controls.Add(this.handlePrintReceipt);
             this.CalculationPanel.Controls.Add(this.totalCostLabel);
             this.CalculationPanel.Controls.Add(this.label1);
             this.CalculationPanel.Location = new System.Drawing.Point(-4, 0);
@@ -204,11 +208,37 @@
             this.CalculationPanel.Size = new System.Drawing.Size(261, 684);
             this.CalculationPanel.TabIndex = 10;
             // 
+            // handleQuantity
+            // 
+            this.handleQuantity.BackColor = System.Drawing.Color.DarkOrange;
+            this.handleQuantity.Font = new System.Drawing.Font("Microsoft Tai Le", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.handleQuantity.ForeColor = System.Drawing.Color.White;
+            this.handleQuantity.Location = new System.Drawing.Point(127, 579);
+            this.handleQuantity.Name = "handleQuantity";
+            this.handleQuantity.Size = new System.Drawing.Size(111, 90);
+            this.handleQuantity.TabIndex = 3;
+            this.handleQuantity.Text = "QUANTITY";
+            this.handleQuantity.UseVisualStyleBackColor = false;
+            this.handleQuantity.Click += new System.EventHandler(this.handleQuantity_Click);
+            // 
+            // handlePrintReceipt
+            // 
+            this.handlePrintReceipt.BackColor = System.Drawing.Color.YellowGreen;
+            this.handlePrintReceipt.Font = new System.Drawing.Font("Microsoft Tai Le", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.handlePrintReceipt.ForeColor = System.Drawing.Color.White;
+            this.handlePrintReceipt.Location = new System.Drawing.Point(10, 579);
+            this.handlePrintReceipt.Name = "handlePrintReceipt";
+            this.handlePrintReceipt.Size = new System.Drawing.Size(111, 90);
+            this.handlePrintReceipt.TabIndex = 2;
+            this.handlePrintReceipt.Text = "PRINT\r\nRECEIPT\r\n";
+            this.handlePrintReceipt.UseVisualStyleBackColor = false;
+            this.handlePrintReceipt.Click += new System.EventHandler(this.handlePrintReceipt_Click);
+            // 
             // totalCostLabel
             // 
             this.totalCostLabel.AutoSize = true;
             this.totalCostLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalCostLabel.Location = new System.Drawing.Point(102, 607);
+            this.totalCostLabel.Location = new System.Drawing.Point(105, 532);
             this.totalCostLabel.Name = "totalCostLabel";
             this.totalCostLabel.Size = new System.Drawing.Size(70, 34);
             this.totalCostLabel.TabIndex = 1;
@@ -218,7 +248,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(7, 607);
+            this.label1.Location = new System.Drawing.Point(10, 532);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(89, 34);
             this.label1.TabIndex = 0;
@@ -631,5 +661,7 @@
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.Label totalCostLabel;
+        private System.Windows.Forms.Button handlePrintReceipt;
+        private System.Windows.Forms.Button handleQuantity;
     }
 }

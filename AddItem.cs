@@ -65,6 +65,7 @@ namespace OOP2_POS
                 Console.WriteLine(ex.Message);
             }
             adminForm.GetAllProducts();
+            adminForm.CreateLog("Add Item", name);
         }
     }
 }
