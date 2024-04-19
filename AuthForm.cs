@@ -117,6 +117,8 @@ namespace OOP2_POS
                 UserController controller = new UserController();
 
                 controller.CreateUser(email, username, password);
+
+                authTabControl.SelectTab(0);
             }
             if (regEmailInput.Text == "")
             {

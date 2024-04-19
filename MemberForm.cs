@@ -15,12 +15,10 @@ namespace OOP2_POS
    
     public partial class MemberForm : Form
     {
-        List<string> itemName = new List<string>();
-        List<string> itemPrice = new List<string>();
-        List<string> itemQuantity = new List<string>();
-
+        int itemsPerColumn = 0;
         int total = 0;
-        int location = 0;
+        int buttonLocationX = 0;
+        int buttonLocationY = 0;
         int panelLocation = 0;
 
         private string quantityValue = "1";
@@ -39,12 +37,24 @@ namespace OOP2_POS
         {
             InitializeComponent();
 
-            GetProductsInCategory("fruits");
+            ProductController controller = new ProductController();
+
+            controller.SelectProductsByCategory("Fruits", productList);
 
             for(int i = 0; i < productList.Count; i++)
             {
-                CreateAButton(productList, 10+location,10, 100, bakeryandbreadTab,i);
-                location += 120;
+                CreateAButton(productList, 10 + buttonLocationX, 10 + buttonLocationY, 100, bakeryandbreadTab,i);
+                itemsPerColumn++;
+                if (itemsPerColumn <4)
+                {
+                    buttonLocationX += 120;
+                }
+                else
+                {
+                    buttonLocationY += 120;
+                    buttonLocationX = 0;
+                }
+                
             }
 
         }
@@ -54,17 +64,23 @@ namespace OOP2_POS
             Panel panel = new Panel();
             TextBox textBox = new TextBox();
             Button panelButton = new Button();
+            Label label = new Label();
 
             // Set properties for the controls
             panel.Location = new System.Drawing.Point(50, 200);
             panel.Size = new System.Drawing.Size(300, 300);
-            textBox.Location = new System.Drawing.Point(10, 10); // Position within the panel
+            label.Location = new System.Drawing.Point(0, 10); // Position within the panel
+            label.Size = new System.Drawing.Size(100, 20);
+            label.Text = "Quantity";
+            label.Font = new System.Drawing.Font("Arial", 12, System.Drawing.FontStyle.Bold);
+            textBox.Location = new System.Drawing.Point(0, 30); // Position within the panel
             textBox.Size = new System.Drawing.Size(50, 50);
+            panelButton.Location = new System.Drawing.Point(0, 70);
             panelButton.Size = new System.Drawing.Size(80, 30);
-            panelButton.Location = new System.Drawing.Point(10, 40);
             panelButton.Text = "OK";
 
             // Add controls to the panel
+            panel.Controls.Add(label);
             panel.Controls.Add(textBox);
             panel.Controls.Add(panelButton);
 
@@ -72,7 +88,7 @@ namespace OOP2_POS
             panelButton.Click += (s, args) =>
             {
                 quantityValue = textBox.Text;
-                MessageBox.Show("Value passed: " + quantityValue);
+                MessageBox.Show("Select an item");
                 panel.Dispose(); // Dispose the panel after use
             };
 
@@ -96,13 +112,14 @@ namespace OOP2_POS
             button.Click += (sender, e) =>
             {
                 Label label = new Label();
-                label.Text = product.ItemName + "\t₱ " + product.ItemPrice + "\t" +"X" +quantityValue;
+                string text = $"{product.ItemName.PadRight(10)}P {product.ItemPrice.PadRight(10)}X{quantityValue}";
+                label.Text = text;
                 label.Location = new System.Drawing.Point(10, 10+ panelLocation);
                 label.AutoSize = true;
                 label.Font = new System.Drawing.Font("Arial", 15, System.Drawing.FontStyle.Bold);
                 CalculationPanel.Controls.Add(label);
 
-                location += 30;
+                buttonLocationX += 30;
 
                 total += productPrice;
                 string strTotal = total.ToString();
@@ -163,59 +180,12 @@ namespace OOP2_POS
 
 
 
-        private void GetProductsInCategory(string category)
-        {
-
-            string dbSource = @"BIODOTA\SQLEXPRESS";
-            string db = "POS";
-            string connString = @"Data Source=" + dbSource + ";Initial Catalog=" + db + ";Integrated Security=True;";
-
-            string query = "SELECT Description, Price, Quantity FROM POS_Items WHERE Category = @Category";
-
-            using (SqlConnection connection = new SqlConnection(connString))
-            {
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-
-                    command.Parameters.AddWithValue("@Category", category);
-
-                    try
-                    {
-                        connection.Open();
-                        SqlDataReader reader = command.ExecuteReader();
-
-                        int i = 0;
-
-                        if (reader.HasRows)
-                        {
- 
-                            while (reader.Read())
-                            {
-                                string productName = reader.GetString(0);
-                                string productPrice = reader.GetString(1);
-                                string productQuantity = reader.GetString(2);
         
-                                Cashier.Product product = new Cashier.Product(productName, productPrice, productQuantity);
-                                productList.Add(i, product);
-                                i++;
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error: " + ex.Message);
-                    }
-                }
-            }
-
-
-        }
 
         private void handlePrintReceipt_Click(object sender, EventArgs e)
         {
             Cashier.PrintReceipt();
         }
 
-       
     }
 } 

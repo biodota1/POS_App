@@ -11,11 +11,11 @@ namespace OOP2_POS
 {
     public class UserController
     {
-        private const string connString = @"Data Source= BIODOTA\SQLEXPRESS;Initial Catalog= POS;Integrated Security=True;";
+        private const string connString = @"Data Source= EARTH137\SQLEXPRESS;Initial Catalog= POS;Integrated Security=True;";
 
         public void GetAllUsers(ListView listview)
         {
-            string query = "SELECT Email, Username, Role FROM POSUsers";
+            string query = "SELECT Email, Username, Role FROM Users";
 
             using (SqlConnection connection = new SqlConnection(connString))
             {
@@ -52,20 +52,6 @@ namespace OOP2_POS
             }
         }
 
-        private string HashPassword(string toHashPassword)
-        {
-            using (SHA256 sha256 = SHA256.Create())
-            {
-                byte[] hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(toHashPassword));
-                StringBuilder builder = new StringBuilder();
-                for (int i = 0; i < hashedBytes.Length; i++)
-                {
-                    builder.Append(hashedBytes[i].ToString("x2"));
-                }
-                return builder.ToString();
-            }
-        }
-
         public void CreateUser(string email, string username, string password)
         {
 
@@ -76,7 +62,7 @@ namespace OOP2_POS
             try
             {
                 conn.Open();
-                string sqlQuery = $"Insert Into POSUsers (Email, Username, Password) Values(N'{email}','{username}','{hashedPassword}')";
+                string sqlQuery = $"Insert Into Users (Email, Username, Password) Values(N'{email}','{username}','{hashedPassword}')";
 
                 using (SqlCommand cmd = new SqlCommand(sqlQuery, conn))
                 {
@@ -118,7 +104,7 @@ namespace OOP2_POS
 
         public void DeleteUser(string username)
         {
-            string query = "DELETE FROM POSUsers WHERE Username = @Username";
+            string query = "DELETE FROM Users WHERE Username = @Username";
 
             using (SqlConnection connection = new SqlConnection(connString))
             {
@@ -142,7 +128,7 @@ namespace OOP2_POS
         public bool ValidateUser(string username, string password)
         {
             string hashedPassword = HashPassword(password);
-            string query = "SELECT COUNT(*) FROM POSUsers WHERE Username = @Username AND Password = @Password";
+            string query = "SELECT COUNT(*) FROM Users WHERE Username = @Username AND Password = @Password";
 
             using (SqlConnection connection = new SqlConnection(connString))
             {
@@ -159,14 +145,14 @@ namespace OOP2_POS
         public string UserRoles(string username)
         {
             string userRole = "";
-            string dbSource = @"BIODOTA\SQLEXPRESS";
+            string dbSource = @"EARTH137\SQLEXPRESS";
             string db = "POS";
             string connString = @"Data Source=" + dbSource + ";Initial Catalog=" + db + ";Integrated Security=True;";
 
             using (SqlConnection connection = new SqlConnection(connString))
             {
                 connection.Open();
-                string query = "SELECT Role FROM POSUsers WHERE Username = @Username";
+                string query = "SELECT Role FROM Users WHERE Username = @Username";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     // Add parameter for the username to find
@@ -198,6 +184,20 @@ namespace OOP2_POS
 
             }
             return userRole;
+        }
+
+        private string HashPassword(string toHashPassword)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(toHashPassword));
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < hashedBytes.Length; i++)
+                {
+                    builder.Append(hashedBytes[i].ToString("x2"));
+                }
+                return builder.ToString();
+            }
         }
     }
 }

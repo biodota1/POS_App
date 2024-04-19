@@ -17,12 +17,7 @@ namespace OOP2_POS
         {
             InitializeComponent();
 
-            GetAllProducts();
-
-            UserController controller = new UserController();
-            controller.GetAllUsers(userListView);
-
-            GetAllLogs();
+            RefreshForm();
         }
 
         private void dashboardButton_Click(object sender, EventArgs e)
@@ -50,49 +45,6 @@ namespace OOP2_POS
            AddItem addItem = new AddItem();
             addItem.Show();
             addItem.Location = new Point(this.Location.X+this.Width, this.Location.Y);
-        }
-
-        public void GetAllProducts()
-        {
-            string dbSource = @"BIODOTA\SQLEXPRESS";
-            string db = "POS";
-            string connString = @"Data Source=" + dbSource + ";Initial Catalog=" + db + ";Integrated Security=True;";
-
-            string query = "SELECT Description, Price, Quantity FROM POS_Items";
-
-            using (SqlConnection connection = new SqlConnection(connString))
-            {
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    try
-                    {
-                        connection.Open();
-                        SqlDataReader reader = command.ExecuteReader();
-
-                        listView1.Columns.Clear();
-                        listView1.Items.Clear();
-
-
-                        listView1.Columns.Add("Description");
-                        listView1.Columns.Add("Price");
-                        listView1.Columns.Add("Quantity");
-                        while (reader.Read())
-                        {
-                            ListViewItem item = new ListViewItem(reader["Description"].ToString());
-                            item.SubItems.Add(reader["Price"].ToString());
-                            item.SubItems.Add(reader["Quantity"].ToString());
-                            listView1.Items.Add(item);
-
-                        }
-
-                        reader.Close();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error: " + ex.Message);
-                    }
-                }
-            }
         }
 
         public void CreateLog(string info, string details)
@@ -162,49 +114,14 @@ namespace OOP2_POS
             }
         }
 
-       /* public void GetAllUsers()
+        public void RefreshForm()
         {
-            string dbSource = @"BIODOTA\SQLEXPRESS";
-            string db = "POS";
-            string connString = @"Data Source=" + dbSource + ";Initial Catalog=" + db + ";Integrated Security=True;";
+            ProductController productController = new ProductController();
+            UserController userController = new UserController();
 
-            string query = "SELECT Email, Username, Role FROM POSUsers";
-
-            using (SqlConnection connection = new SqlConnection(connString))
-            {
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    try
-                    {
-                        connection.Open();
-                        SqlDataReader reader = command.ExecuteReader();
-
-                        userListView.Columns.Clear();
-                        userListView.Items.Clear();
-
-
-                        userListView.Columns.Add("Username");
-                        userListView.Columns.Add("Email");
-                        userListView.Columns.Add("Role");
-                        while (reader.Read())
-                        {
-                            ListViewItem item = new ListViewItem(reader["Username"].ToString());
-                            item.SubItems.Add(reader["Email"].ToString());
-                            item.SubItems.Add(reader["Role"].ToString());
-                            userListView.Items.Add(item);
-
-                        }
-
-                        reader.Close();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error: " + ex.Message);
-                    }
-                }
-            }
-        }*/
-
-
+            productController.GetAllProducts(itemsListView);
+            userController.GetAllUsers(usersListView);
+        }
+    
     }
 }

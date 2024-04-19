@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AuthForm));
             this.LoginPanel = new System.Windows.Forms.Panel();
-            this.samplethis = new System.Windows.Forms.Label();
             this.passWrongPassword = new System.Windows.Forms.Label();
             this.userInvalidInput = new System.Windows.Forms.Label();
             this.passErrorIcon = new System.Windows.Forms.PictureBox();
@@ -87,7 +86,6 @@
             // 
             this.LoginPanel.BackColor = System.Drawing.Color.White;
             this.LoginPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.LoginPanel.Controls.Add(this.samplethis);
             this.LoginPanel.Controls.Add(this.passWrongPassword);
             this.LoginPanel.Controls.Add(this.userInvalidInput);
             this.LoginPanel.Controls.Add(this.passErrorIcon);
@@ -106,15 +104,6 @@
             this.LoginPanel.Name = "LoginPanel";
             this.LoginPanel.Size = new System.Drawing.Size(504, 453);
             this.LoginPanel.TabIndex = 0;
-            // 
-            // samplethis
-            // 
-            this.samplethis.AutoSize = true;
-            this.samplethis.Location = new System.Drawing.Point(133, 29);
-            this.samplethis.Name = "samplethis";
-            this.samplethis.Size = new System.Drawing.Size(35, 13);
-            this.samplethis.TabIndex = 14;
-            this.samplethis.Text = "label8";
             // 
             // passWrongPassword
             // 
@@ -301,12 +290,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Leelawadee", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label1.Location = new System.Drawing.Point(103, 51);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 24);
+            this.label1.Size = new System.Drawing.Size(113, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "DevJackie";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -326,10 +315,10 @@
             // 
             this.authTabControl.Controls.Add(this.tabPage1);
             this.authTabControl.Controls.Add(this.tabPage2);
-            this.authTabControl.Location = new System.Drawing.Point(302, 2);
+            this.authTabControl.Location = new System.Drawing.Point(302, -22);
             this.authTabControl.Name = "authTabControl";
             this.authTabControl.SelectedIndex = 0;
-            this.authTabControl.Size = new System.Drawing.Size(502, 459);
+            this.authTabControl.Size = new System.Drawing.Size(502, 483);
             this.authTabControl.TabIndex = 2;
             // 
             // tabPage1
@@ -338,7 +327,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(494, 433);
+            this.tabPage1.Size = new System.Drawing.Size(494, 457);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -611,6 +600,5 @@
         private System.Windows.Forms.PictureBox regPassErrorIcon;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox regPasswordInput;
-        private System.Windows.Forms.Label samplethis;
     }
 }

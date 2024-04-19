@@ -47,7 +47,7 @@
             this.button11 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
-            this.userListView = new System.Windows.Forms.ListView();
+            this.usersListView = new System.Windows.Forms.ListView();
             this.button14 = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -57,18 +57,15 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.addItemButton = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.itemsListView = new System.Windows.Forms.ListView();
             this.button2 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.historyListView = new System.Windows.Forms.ListView();
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label6 = new System.Windows.Forms.Label();
-            this.historyListView = new System.Windows.Forms.ListView();
             this.roundedPanel5 = new RoundedPanel();
             this.listView2 = new System.Windows.Forms.ListView();
             this.label19 = new System.Windows.Forms.Label();
@@ -299,7 +296,7 @@
             this.usersTabPage.Controls.Add(this.button11);
             this.usersTabPage.Controls.Add(this.button12);
             this.usersTabPage.Controls.Add(this.button13);
-            this.usersTabPage.Controls.Add(this.userListView);
+            this.usersTabPage.Controls.Add(this.usersListView);
             this.usersTabPage.Controls.Add(this.button14);
             this.usersTabPage.Controls.Add(this.textBox3);
             this.usersTabPage.Controls.Add(this.label3);
@@ -356,15 +353,15 @@
             this.button13.Text = "ADD";
             this.button13.UseVisualStyleBackColor = true;
             // 
-            // userListView
+            // usersListView
             // 
-            this.userListView.HideSelection = false;
-            this.userListView.Location = new System.Drawing.Point(18, 89);
-            this.userListView.Name = "userListView";
-            this.userListView.Size = new System.Drawing.Size(457, 338);
-            this.userListView.TabIndex = 12;
-            this.userListView.UseCompatibleStateImageBehavior = false;
-            this.userListView.View = System.Windows.Forms.View.Details;
+            this.usersListView.HideSelection = false;
+            this.usersListView.Location = new System.Drawing.Point(18, 89);
+            this.usersListView.Name = "usersListView";
+            this.usersListView.Size = new System.Drawing.Size(457, 338);
+            this.usersListView.TabIndex = 12;
+            this.usersListView.UseCompatibleStateImageBehavior = false;
+            this.usersListView.View = System.Windows.Forms.View.Details;
             // 
             // button14
             // 
@@ -400,7 +397,7 @@
             this.settingsTabPage.Controls.Add(this.button5);
             this.settingsTabPage.Controls.Add(this.button4);
             this.settingsTabPage.Controls.Add(this.addItemButton);
-            this.settingsTabPage.Controls.Add(this.listView1);
+            this.settingsTabPage.Controls.Add(this.itemsListView);
             this.settingsTabPage.Controls.Add(this.button2);
             this.settingsTabPage.Controls.Add(this.textBox2);
             this.settingsTabPage.Controls.Add(this.label4);
@@ -458,31 +455,15 @@
             this.addItemButton.UseVisualStyleBackColor = true;
             this.addItemButton.Click += new System.EventHandler(this.addItemButton_Click);
             // 
-            // listView1
+            // itemsListView
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3});
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(18, 79);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(457, 338);
-            this.listView1.TabIndex = 3;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Description";
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Price";
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Quantity";
+            this.itemsListView.HideSelection = false;
+            this.itemsListView.Location = new System.Drawing.Point(18, 79);
+            this.itemsListView.Name = "itemsListView";
+            this.itemsListView.Size = new System.Drawing.Size(457, 338);
+            this.itemsListView.TabIndex = 3;
+            this.itemsListView.UseCompatibleStateImageBehavior = false;
+            this.itemsListView.View = System.Windows.Forms.View.Details;
             // 
             // button2
             // 
@@ -523,6 +504,16 @@
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // historyListView
+            // 
+            this.historyListView.HideSelection = false;
+            this.historyListView.Location = new System.Drawing.Point(18, 52);
+            this.historyListView.Name = "historyListView";
+            this.historyListView.Size = new System.Drawing.Size(753, 531);
+            this.historyListView.TabIndex = 1;
+            this.historyListView.UseCompatibleStateImageBehavior = false;
+            this.historyListView.View = System.Windows.Forms.View.Details;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -553,16 +544,6 @@
             this.label6.Size = new System.Drawing.Size(121, 25);
             this.label6.TabIndex = 0;
             this.label6.Text = "SETTINGS";
-            // 
-            // historyListView
-            // 
-            this.historyListView.HideSelection = false;
-            this.historyListView.Location = new System.Drawing.Point(18, 52);
-            this.historyListView.Name = "historyListView";
-            this.historyListView.Size = new System.Drawing.Size(753, 531);
-            this.historyListView.TabIndex = 1;
-            this.historyListView.UseCompatibleStateImageBehavior = false;
-            this.historyListView.View = System.Windows.Forms.View.Details;
             // 
             // roundedPanel5
             // 
@@ -846,7 +827,7 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button addItemButton;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView itemsListView;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button7;
@@ -875,15 +856,12 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.ListView userListView;
+        private System.Windows.Forms.ListView usersListView;
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.ListView historyListView;

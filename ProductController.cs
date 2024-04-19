@@ -11,13 +11,13 @@ namespace OOP2_POS
 {
     public class ProductController
     {
-        private const string connString = @"Data Source= BIODOTA\SQLEXPRESS;Initial Catalog= POS;Integrated Security=True;";
+        private const string connString = @"Data Source= EARTH137\SQLEXPRESS; Initial Catalog= POS; Integrated Security=True;";
 
         static Random random = new Random();
 
         public void GetAllProducts(ListView listview)
         {
-            string query = "SELECT Description, Username, Role FROM POSUsers";
+            string query = "SELECT Description, Price, Category FROM Products";
 
             using (SqlConnection connection = new SqlConnection(connString))
             {
@@ -34,12 +34,12 @@ namespace OOP2_POS
 
                         listview.Columns.Add("Description");
                         listview.Columns.Add("Price");
-                        listview.Columns.Add("Quantity");
+                        listview.Columns.Add("Category");
                         while (reader.Read())
                         {
                             ListViewItem item = new ListViewItem(reader["Description"].ToString());
                             item.SubItems.Add(reader["Price"].ToString());
-                            item.SubItems.Add(reader["Quantity"].ToString());
+                            item.SubItems.Add(reader["Category"].ToString());
                             listview.Items.Add(item);
 
                         }
@@ -54,6 +54,50 @@ namespace OOP2_POS
             }
         }
 
+        public void SelectProductsByCategory(string category, Dictionary<int, Cashier.Product> productList)
+        {
+
+            string query = "SELECT Description, Price, Quantity FROM Products WHERE Category = @Category";
+
+            using (SqlConnection connection = new SqlConnection(connString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+
+                    command.Parameters.AddWithValue("@Category", category);
+
+                    try
+                    {
+                        connection.Open();
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        int i = 0;
+
+                        if (reader.HasRows)
+                        {
+
+                            while (reader.Read())
+                            {
+                                string productName = reader.GetString(0);
+                                string productPrice = reader.GetString(1);
+                                string productQuantity = reader.GetString(2);
+
+                                Cashier.Product product = new Cashier.Product(productName, productPrice, productQuantity);
+                                productList.Add(i, product);
+                                i++;
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
+                }
+            }
+
+
+        }
+
 
         public void AddProduct( string description, string price, string quantity, string category)
         {
@@ -63,9 +107,9 @@ namespace OOP2_POS
             try
             {
                 conn.Open();
-                string sqlQuery = $"Insert Into POS_Items (Barcode, Description, Price, Quantity, Category) Values(N'{barcode}','{description}','{price}','{quantity}','{category}')";
+                string query = $"Insert Into Products (Barcode, Description, Price, Quantity, Category) Values(N'{barcode}','{description}','{price}','{quantity}','{category}')";
 
-                using (SqlCommand cmd = new SqlCommand(sqlQuery, conn))
+                using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     cmd.ExecuteNonQuery();
                 }
@@ -82,7 +126,7 @@ namespace OOP2_POS
         {
             SqlConnection conn = new SqlConnection(connString);
             {
-                string query = "UPDATE POS_Items SET Description = @UpdatedDescription, Price = @UpdatedPrice, Quantity = @UpdatedQuantity, Category = @UpdatedCategory WHERE Description = @Description";
+                string query = "UPDATE Products SET Description = @UpdatedDescription, Price = @UpdatedPrice, Quantity = @UpdatedQuantity, Category = @UpdatedCategory WHERE Description = @Description";
 
                 conn.Open();
                 using (SqlCommand command = new SqlCommand(query, conn))
@@ -107,7 +151,7 @@ namespace OOP2_POS
 
         public void DeleteUser(string description)
         {
-            string query = "DELETE FROM POS_Items WHERE Description = @Description";
+            string query = "DELETE FROM Products WHERE Description = @Description";
 
             using (SqlConnection connection = new SqlConnection(connString))
             {
