@@ -2,56 +2,56 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using ComboBox = System.Windows.Forms.ComboBox;
 
 namespace OOP2_POS
 {
-    public partial class AddItem : Form
+    public partial class EditItem : Form
     {
         private string category = "";
 
-        public AddItem()
+        private string barcode = "";
+
+        public EditItem(AdminForm.Product product)
         {
             InitializeComponent();
 
-            InitializeComboBox();
+            InitializeComboBox(product.ItemCategory);
+
+            editItemName.Text = product.ItemName;
+            editItemPrice.Text = product.ItemPrice;
+            editItemQuantity.Text = product.ItemPrice;
+            barcode = product.ItemBarcode;
         }
 
-     
-
-        private void addItemToDbButton_Click(object sender, EventArgs e)
+        private void doneEditButton_Click(object sender, EventArgs e)
         {
             AdminForm adminForm = new AdminForm();
 
-            string name = addItemName.Text;
-            string price = addItemPrice.Text;
-            string quantity = addItemPrice.Text;
+            string name = editItemName.Text;
+            string price = editItemPrice.Text;
+            string quantity = editItemQuantity.Text;
 
             ProductController controller = new ProductController();
 
-            controller.AddProduct(name, price, quantity, category);
+            controller.UpdateProduct(barcode, name, price, quantity, category);
 
-            
             adminForm.RefreshForm();
 
             this.Dispose();
-
-            
         }
 
-        private void InitializeComboBox()
+        private void InitializeComboBox(string category)
         {
             ComboBox comboBox = new ComboBox();
             comboBox.Location = new System.Drawing.Point(23, 250);
             comboBox.Size = new System.Drawing.Size(227, 30);
             comboBox.Font = new Font("Arial", 12, FontStyle.Regular);
+            comboBox.Text = category;
 
             // Add items to the ComboBox
             comboBox.Items.Add("FruitsAndVeggie");

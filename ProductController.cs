@@ -11,13 +11,37 @@ namespace OOP2_POS
 {
     public class ProductController
     {
-        private const string connString = @"Data Source= EARTH137\SQLEXPRESS; Initial Catalog= POS; Integrated Security=True;";
+        private const string database = @"BIODOTA\SQLEXPRESS";
+
+        private const string table = "POS_Products";
+
+        private const string connString = "Data Source= "+ database + ";Initial Catalog= POS; Integrated Security=True;";
 
         static Random random = new Random();
 
-        public void GetAllProducts(ListView listview)
+        public class Product
         {
-            string query = "SELECT Description, Price, Category FROM Products";
+            public string ItemBarcode { get; set; }
+            public string ItemName { get; set; }
+            public string ItemPrice { get; set; }
+            public string ItemQuantity { get; set; }
+            public string ItemCategory {  get; set; }
+
+            public Product(string barcode, string name, string price, string quantity, string category)
+            {
+                ItemBarcode = barcode;
+                ItemName = name;
+                ItemPrice = price;
+                ItemQuantity = quantity;
+                ItemCategory = category;
+            }
+        }
+
+        public List<Product> GetAllProducts()
+        {
+            List<Product> products = new List<Product>();
+
+            string query = $"SELECT Barcode, Name, Price, Quantity, Category FROM {table}";
 
             using (SqlConnection connection = new SqlConnection(connString))
             {
@@ -28,20 +52,16 @@ namespace OOP2_POS
                         connection.Open();
                         SqlDataReader reader = command.ExecuteReader();
 
-                        listview.Columns.Clear();
-                        listview.Items.Clear();
-
-
-                        listview.Columns.Add("Description");
-                        listview.Columns.Add("Price");
-                        listview.Columns.Add("Category");
                         while (reader.Read())
                         {
-                            ListViewItem item = new ListViewItem(reader["Description"].ToString());
-                            item.SubItems.Add(reader["Price"].ToString());
-                            item.SubItems.Add(reader["Category"].ToString());
-                            listview.Items.Add(item);
+                            string productBarcode = reader.GetString(0);
+                            string productName = reader.GetString(1);
+                            string productPrice = reader.GetString(2);
+                            string productQuantity = reader.GetString(3);
+                            string productCategory = reader.GetString(4);
 
+                            Product product = new Product(productBarcode, productName, productPrice, productQuantity, productCategory);
+                            products.Add(product);
                         }
 
                         reader.Close();
@@ -52,12 +72,14 @@ namespace OOP2_POS
                     }
                 }
             }
+
+            return products;
         }
 
         public void SelectProductsByCategory(string category, Dictionary<int, Cashier.Product> productList)
         {
 
-            string query = "SELECT Description, Price, Quantity FROM Products WHERE Category = @Category";
+            string query = $"SELECT Barcode, Name, Price, Quantity FROM {table} WHERE Category = @Category";
 
             using (SqlConnection connection = new SqlConnection(connString))
             {
@@ -78,11 +100,12 @@ namespace OOP2_POS
 
                             while (reader.Read())
                             {
-                                string productName = reader.GetString(0);
-                                string productPrice = reader.GetString(1);
-                                string productQuantity = reader.GetString(2);
+                                string productBarcode = reader.GetString(0);
+                                string productName = reader.GetString(1);
+                                string productPrice = reader.GetString(2);
+                                string productQuantity = reader.GetString(3);
 
-                                Cashier.Product product = new Cashier.Product(productName, productPrice, productQuantity);
+                                Cashier.Product product = new Cashier.Product(productBarcode, productName, productPrice, productQuantity);
                                 productList.Add(i, product);
                                 i++;
                             }
@@ -98,8 +121,7 @@ namespace OOP2_POS
 
         }
 
-
-        public void AddProduct( string description, string price, string quantity, string category)
+        public void AddProduct( string name, string price, string quantity, string category)
         {
             string barcode = GenerateBarcode(16);
 
@@ -107,7 +129,7 @@ namespace OOP2_POS
             try
             {
                 conn.Open();
-                string query = $"Insert Into Products (Barcode, Description, Price, Quantity, Category) Values(N'{barcode}','{description}','{price}','{quantity}','{category}')";
+                string query = $"Insert Into {table} (Barcode, Name, Price, Quantity, Category) Values(N'{barcode}','{name}','{price}','{quantity}','{category}')";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -122,16 +144,17 @@ namespace OOP2_POS
             }
         }
 
-        public void UpdateProduct(string updatedDescription, string updatedPrice, string udpatedQuantity, string updatedCategory)
+        public void UpdateProduct(string barcode, string updatedName, string updatedPrice, string udpatedQuantity, string updatedCategory)
         {
             SqlConnection conn = new SqlConnection(connString);
             {
-                string query = "UPDATE Products SET Description = @UpdatedDescription, Price = @UpdatedPrice, Quantity = @UpdatedQuantity, Category = @UpdatedCategory WHERE Description = @Description";
+                string query = $"UPDATE {table} SET Name = @UpdatedName, Price = @UpdatedPrice, Quantity = @UpdatedQuantity, Category = @UpdatedCategory WHERE Barcode = @Barcode";
 
                 conn.Open();
                 using (SqlCommand command = new SqlCommand(query, conn))
                 {
-                    command.Parameters.AddWithValue("@UpdatedDescription", updatedDescription);
+                    command.Parameters.AddWithValue("@Barcode", barcode);
+                    command.Parameters.AddWithValue("@UpdatedName", updatedName);
                     command.Parameters.AddWithValue("@UpdatedPrice", updatedPrice);
                     command.Parameters.AddWithValue("@UpdatedQuantity", udpatedQuantity);
                     command.Parameters.AddWithValue("@UpdatedCategory", updatedCategory);
@@ -149,27 +172,34 @@ namespace OOP2_POS
             }
         }
 
-        public void DeleteUser(string description)
+        public void DeleteProduct(string barcode)
         {
-            string query = "DELETE FROM Products WHERE Description = @Description";
+            string query = $"DELETE FROM {table} WHERE Barcode = @Barcode";
 
-            using (SqlConnection connection = new SqlConnection(connString))
+            try
             {
-                connection.Open();
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlConnection connection = new SqlConnection(connString))
                 {
-                    command.Parameters.AddWithValue("@Description", description);
-                    int rowsAffected = command.ExecuteNonQuery();
-                    if (rowsAffected > 0)
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        MessageBox.Show("User deleted successfully.");
-                    }
-                    else
-                    {
-                        MessageBox.Show("User not found or deletion failed.");
+                        command.Parameters.AddWithValue("@Barcode", barcode);
+                        int rowsAffected = command.ExecuteNonQuery();
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("User deleted successfully.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("User not found or deletion failed.");
+                        }
                     }
                 }
+            }catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
         }
 
         static string GenerateBarcode(int length)

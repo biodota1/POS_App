@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminForm));
             this.sidePanel = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
+            this.logoutButton = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.logsButton = new System.Windows.Forms.Button();
@@ -42,22 +42,33 @@
             this.dashTabPage = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
             this.usersTabPage = new System.Windows.Forms.TabPage();
+            this.button15 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.usersListView = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button14 = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.settingsTabPage = new System.Windows.Forms.TabPage();
+            this.refreshItemButton = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.editItemButton = new System.Windows.Forms.Button();
+            this.removeButton = new System.Windows.Forms.Button();
             this.addItemButton = new System.Windows.Forms.Button();
             this.itemsListView = new System.Windows.Forms.ListView();
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button2 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -76,11 +87,11 @@
             this.roundedPanel3 = new RoundedPanel();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
+            this.productCount = new System.Windows.Forms.Label();
             this.roundedPanel2 = new RoundedPanel();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.userCount = new System.Windows.Forms.Label();
             this.roundedPanel1 = new RoundedPanel();
             this.button8 = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
@@ -104,7 +115,7 @@
             // 
             this.sidePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(75)))), ((int)(((byte)(200)))));
             this.sidePanel.Controls.Add(this.roundedPanel1);
-            this.sidePanel.Controls.Add(this.button3);
+            this.sidePanel.Controls.Add(this.logoutButton);
             this.sidePanel.Controls.Add(this.label7);
             this.sidePanel.Controls.Add(this.button1);
             this.sidePanel.Controls.Add(this.logsButton);
@@ -117,22 +128,23 @@
             this.sidePanel.Size = new System.Drawing.Size(205, 686);
             this.sidePanel.TabIndex = 0;
             // 
-            // button3
+            // logoutButton
             // 
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(4, 352);
-            this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.button3.Size = new System.Drawing.Size(200, 50);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "Log out";
-            this.button3.UseVisualStyleBackColor = false;
+            this.logoutButton.BackColor = System.Drawing.Color.Transparent;
+            this.logoutButton.FlatAppearance.BorderSize = 0;
+            this.logoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logoutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logoutButton.ForeColor = System.Drawing.Color.White;
+            this.logoutButton.Image = ((System.Drawing.Image)(resources.GetObject("logoutButton.Image")));
+            this.logoutButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.logoutButton.Location = new System.Drawing.Point(4, 352);
+            this.logoutButton.Name = "logoutButton";
+            this.logoutButton.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.logoutButton.Size = new System.Drawing.Size(200, 50);
+            this.logoutButton.TabIndex = 7;
+            this.logoutButton.Text = "Log out";
+            this.logoutButton.UseVisualStyleBackColor = false;
+            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
             // 
             // label7
             // 
@@ -256,11 +268,11 @@
             this.adminTabControl.Controls.Add(this.settingsTabPage);
             this.adminTabControl.Controls.Add(this.tabPage2);
             this.adminTabControl.Controls.Add(this.tabPage1);
-            this.adminTabControl.Location = new System.Drawing.Point(203, 12);
+            this.adminTabControl.Location = new System.Drawing.Point(203, -24);
             this.adminTabControl.Name = "adminTabControl";
             this.adminTabControl.Padding = new System.Drawing.Point(0, 0);
             this.adminTabControl.SelectedIndex = 0;
-            this.adminTabControl.Size = new System.Drawing.Size(1066, 670);
+            this.adminTabControl.Size = new System.Drawing.Size(1066, 706);
             this.adminTabControl.TabIndex = 1;
             // 
             // dashTabPage
@@ -275,7 +287,7 @@
             this.dashTabPage.Location = new System.Drawing.Point(4, 22);
             this.dashTabPage.Name = "dashTabPage";
             this.dashTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.dashTabPage.Size = new System.Drawing.Size(1058, 644);
+            this.dashTabPage.Size = new System.Drawing.Size(1058, 680);
             this.dashTabPage.TabIndex = 0;
             this.dashTabPage.Text = "tabPage1";
             // 
@@ -291,6 +303,7 @@
             // 
             // usersTabPage
             // 
+            this.usersTabPage.Controls.Add(this.button15);
             this.usersTabPage.Controls.Add(this.button9);
             this.usersTabPage.Controls.Add(this.button10);
             this.usersTabPage.Controls.Add(this.button11);
@@ -303,14 +316,23 @@
             this.usersTabPage.Location = new System.Drawing.Point(4, 22);
             this.usersTabPage.Name = "usersTabPage";
             this.usersTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.usersTabPage.Size = new System.Drawing.Size(1058, 644);
+            this.usersTabPage.Size = new System.Drawing.Size(1058, 660);
             this.usersTabPage.TabIndex = 1;
             this.usersTabPage.Text = "tabPage2";
             this.usersTabPage.UseVisualStyleBackColor = true;
             // 
+            // button15
+            // 
+            this.button15.Location = new System.Drawing.Point(864, 354);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(100, 26);
+            this.button15.TabIndex = 18;
+            this.button15.Text = "REFRESH";
+            this.button15.UseVisualStyleBackColor = true;
+            // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(492, 291);
+            this.button9.Location = new System.Drawing.Point(864, 298);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(100, 26);
             this.button9.TabIndex = 17;
@@ -319,7 +341,7 @@
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(492, 236);
+            this.button10.Location = new System.Drawing.Point(864, 242);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(100, 26);
             this.button10.TabIndex = 16;
@@ -328,7 +350,7 @@
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(492, 185);
+            this.button11.Location = new System.Drawing.Point(864, 186);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(100, 26);
             this.button11.TabIndex = 15;
@@ -337,7 +359,7 @@
             // 
             // button12
             // 
-            this.button12.Location = new System.Drawing.Point(492, 135);
+            this.button12.Location = new System.Drawing.Point(864, 139);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(100, 26);
             this.button12.TabIndex = 14;
@@ -346,7 +368,7 @@
             // 
             // button13
             // 
-            this.button13.Location = new System.Drawing.Point(492, 89);
+            this.button13.Location = new System.Drawing.Point(864, 89);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(100, 26);
             this.button13.TabIndex = 13;
@@ -355,13 +377,38 @@
             // 
             // usersListView
             // 
+            this.usersListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4});
             this.usersListView.HideSelection = false;
-            this.usersListView.Location = new System.Drawing.Point(18, 89);
+            this.usersListView.Location = new System.Drawing.Point(18, 90);
             this.usersListView.Name = "usersListView";
-            this.usersListView.Size = new System.Drawing.Size(457, 338);
+            this.usersListView.Size = new System.Drawing.Size(825, 500);
             this.usersListView.TabIndex = 12;
             this.usersListView.UseCompatibleStateImageBehavior = false;
             this.usersListView.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Email";
+            this.columnHeader1.Width = 194;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Username";
+            this.columnHeader2.Width = 225;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Password";
+            this.columnHeader3.Width = 309;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Role";
+            this.columnHeader4.Width = 89;
             // 
             // button14
             // 
@@ -392,10 +439,11 @@
             // 
             // settingsTabPage
             // 
+            this.settingsTabPage.Controls.Add(this.refreshItemButton);
             this.settingsTabPage.Controls.Add(this.button7);
             this.settingsTabPage.Controls.Add(this.button6);
-            this.settingsTabPage.Controls.Add(this.button5);
-            this.settingsTabPage.Controls.Add(this.button4);
+            this.settingsTabPage.Controls.Add(this.editItemButton);
+            this.settingsTabPage.Controls.Add(this.removeButton);
             this.settingsTabPage.Controls.Add(this.addItemButton);
             this.settingsTabPage.Controls.Add(this.itemsListView);
             this.settingsTabPage.Controls.Add(this.button2);
@@ -404,14 +452,24 @@
             this.settingsTabPage.Location = new System.Drawing.Point(4, 22);
             this.settingsTabPage.Name = "settingsTabPage";
             this.settingsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.settingsTabPage.Size = new System.Drawing.Size(1058, 644);
+            this.settingsTabPage.Size = new System.Drawing.Size(1058, 660);
             this.settingsTabPage.TabIndex = 2;
             this.settingsTabPage.Text = "tabPage1";
             this.settingsTabPage.UseVisualStyleBackColor = true;
             // 
+            // refreshItemButton
+            // 
+            this.refreshItemButton.Location = new System.Drawing.Point(864, 354);
+            this.refreshItemButton.Name = "refreshItemButton";
+            this.refreshItemButton.Size = new System.Drawing.Size(100, 26);
+            this.refreshItemButton.TabIndex = 9;
+            this.refreshItemButton.Text = "REFRESH";
+            this.refreshItemButton.UseVisualStyleBackColor = true;
+            this.refreshItemButton.Click += new System.EventHandler(this.refreshItemButton_Click);
+            // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(492, 281);
+            this.button7.Location = new System.Drawing.Point(864, 298);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(100, 26);
             this.button7.TabIndex = 8;
@@ -420,34 +478,36 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(492, 226);
+            this.button6.Location = new System.Drawing.Point(864, 242);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(100, 26);
             this.button6.TabIndex = 7;
             this.button6.Text = "MOVE UP";
             this.button6.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // editItemButton
             // 
-            this.button5.Location = new System.Drawing.Point(492, 175);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(100, 26);
-            this.button5.TabIndex = 6;
-            this.button5.Text = "EDIT";
-            this.button5.UseVisualStyleBackColor = true;
+            this.editItemButton.Location = new System.Drawing.Point(864, 186);
+            this.editItemButton.Name = "editItemButton";
+            this.editItemButton.Size = new System.Drawing.Size(100, 26);
+            this.editItemButton.TabIndex = 6;
+            this.editItemButton.Text = "EDIT";
+            this.editItemButton.UseVisualStyleBackColor = true;
+            this.editItemButton.Click += new System.EventHandler(this.editItemButton_Click);
             // 
-            // button4
+            // removeButton
             // 
-            this.button4.Location = new System.Drawing.Point(492, 125);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(100, 26);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "REMOVE";
-            this.button4.UseVisualStyleBackColor = true;
+            this.removeButton.Location = new System.Drawing.Point(864, 139);
+            this.removeButton.Name = "removeButton";
+            this.removeButton.Size = new System.Drawing.Size(100, 26);
+            this.removeButton.TabIndex = 5;
+            this.removeButton.Text = "REMOVE";
+            this.removeButton.UseVisualStyleBackColor = true;
+            this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
             // 
             // addItemButton
             // 
-            this.addItemButton.Location = new System.Drawing.Point(492, 79);
+            this.addItemButton.Location = new System.Drawing.Point(864, 89);
             this.addItemButton.Name = "addItemButton";
             this.addItemButton.Size = new System.Drawing.Size(100, 26);
             this.addItemButton.TabIndex = 4;
@@ -457,17 +517,48 @@
             // 
             // itemsListView
             // 
+            this.itemsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7,
+            this.columnHeader8,
+            this.columnHeader9});
             this.itemsListView.HideSelection = false;
-            this.itemsListView.Location = new System.Drawing.Point(18, 79);
+            this.itemsListView.Location = new System.Drawing.Point(18, 90);
             this.itemsListView.Name = "itemsListView";
-            this.itemsListView.Size = new System.Drawing.Size(457, 338);
+            this.itemsListView.Size = new System.Drawing.Size(825, 500);
             this.itemsListView.TabIndex = 3;
             this.itemsListView.UseCompatibleStateImageBehavior = false;
             this.itemsListView.View = System.Windows.Forms.View.Details;
             // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Barcode";
+            this.columnHeader5.Width = 123;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Name";
+            this.columnHeader6.Width = 164;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Price";
+            this.columnHeader7.Width = 124;
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Category";
+            this.columnHeader8.Width = 141;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "Quantity";
+            this.columnHeader9.Width = 76;
+            // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(375, 40);
+            this.button2.Location = new System.Drawing.Point(375, 50);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 26);
             this.button2.TabIndex = 2;
@@ -477,7 +568,7 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(18, 42);
+            this.textBox2.Location = new System.Drawing.Point(18, 52);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(351, 23);
             this.textBox2.TabIndex = 1;
@@ -499,7 +590,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1058, 644);
+            this.tabPage2.Size = new System.Drawing.Size(1058, 660);
             this.tabPage2.TabIndex = 3;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -530,7 +621,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1058, 644);
+            this.tabPage1.Size = new System.Drawing.Size(1058, 660);
             this.tabPage1.TabIndex = 4;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -626,7 +717,7 @@
             this.roundedPanel3.BorderRadius = 15;
             this.roundedPanel3.Controls.Add(this.label13);
             this.roundedPanel3.Controls.Add(this.label14);
-            this.roundedPanel3.Controls.Add(this.label15);
+            this.roundedPanel3.Controls.Add(this.productCount);
             this.roundedPanel3.Location = new System.Drawing.Point(392, 86);
             this.roundedPanel3.Name = "roundedPanel3";
             this.roundedPanel3.Size = new System.Drawing.Size(274, 97);
@@ -654,15 +745,15 @@
             this.label14.TabIndex = 1;
             this.label14.Text = "Total items";
             // 
-            // label15
+            // productCount
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(26, 16);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(76, 29);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "5 128";
+            this.productCount.AutoSize = true;
+            this.productCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.productCount.Location = new System.Drawing.Point(26, 16);
+            this.productCount.Name = "productCount";
+            this.productCount.Size = new System.Drawing.Size(27, 29);
+            this.productCount.TabIndex = 0;
+            this.productCount.Text = "0";
             // 
             // roundedPanel2
             // 
@@ -671,7 +762,7 @@
             this.roundedPanel2.BorderRadius = 15;
             this.roundedPanel2.Controls.Add(this.label12);
             this.roundedPanel2.Controls.Add(this.label11);
-            this.roundedPanel2.Controls.Add(this.label10);
+            this.roundedPanel2.Controls.Add(this.userCount);
             this.roundedPanel2.Location = new System.Drawing.Point(82, 86);
             this.roundedPanel2.Name = "roundedPanel2";
             this.roundedPanel2.Size = new System.Drawing.Size(274, 97);
@@ -699,15 +790,15 @@
             this.label11.TabIndex = 1;
             this.label11.Text = "Total users";
             // 
-            // label10
+            // userCount
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(26, 16);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(76, 29);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "2 345";
+            this.userCount.AutoSize = true;
+            this.userCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userCount.Location = new System.Drawing.Point(26, 16);
+            this.userCount.Name = "userCount";
+            this.userCount.Size = new System.Drawing.Size(27, 29);
+            this.userCount.TabIndex = 0;
+            this.userCount.Text = "0";
             // 
             // roundedPanel1
             // 
@@ -832,15 +923,15 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button editItemButton;
+        private System.Windows.Forms.Button removeButton;
+        private System.Windows.Forms.Button logoutButton;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private RoundedPanel roundedPanel1;
         private RoundedPanel roundedPanel2;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label userCount;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private RoundedPanel roundedPanel4;
@@ -850,7 +941,7 @@
         private RoundedPanel roundedPanel3;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label productCount;
         private RoundedPanel roundedPanel5;
         private System.Windows.Forms.ListView listView2;
         private System.Windows.Forms.Label label19;
@@ -865,5 +956,16 @@
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.ListView historyListView;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button refreshItemButton;
     }
 }

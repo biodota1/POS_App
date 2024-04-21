@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
@@ -13,7 +14,7 @@ namespace OOP2_POS
     public class Cashier 
     {
 
-        public static void PrintReceipt()
+        public static void PrintReceipt(List<ProductController.Product> purchasedItem, int total)
         {
             Document doc = new Document();
 
@@ -58,7 +59,7 @@ namespace OOP2_POS
             }
         }
 
-        public static void ProductQuantity(Panel panelRef, string quantity)
+ /*       public static void ProductQuantity(Panel panelRef, string quantity)
         {
             MemberForm form = new MemberForm();
 
@@ -95,18 +96,20 @@ namespace OOP2_POS
 
             // Add the panel to the form
             panelRef.Controls.Add(panel);
-        }
+        }*/
 
 
         public class Product
         {
+            public string ItemBarcode {  get; set; }
             public string ItemName { get; set; }
             public string ItemPrice { get; set; }
             public string ItemQuantity { get; set; }
 
 
-            public Product(string name, string price, string quantity)
+            public Product(string barcode,string name, string price, string quantity)
             {
+                ItemBarcode = barcode;
                 ItemName = name;
                 ItemPrice = price;
                 ItemQuantity = quantity;

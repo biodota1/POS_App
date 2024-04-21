@@ -34,7 +34,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.addItemQuantity = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.addItemCategory = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.addItemToDbButton = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -94,14 +93,6 @@
             this.label3.TabIndex = 11;
             this.label3.Text = "Category";
             // 
-            // addItemCategory
-            // 
-            this.addItemCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addItemCategory.Location = new System.Drawing.Point(23, 250);
-            this.addItemCategory.Name = "addItemCategory";
-            this.addItemCategory.Size = new System.Drawing.Size(227, 23);
-            this.addItemCategory.TabIndex = 10;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -144,7 +135,6 @@
             this.Controls.Add(this.addItemToDbButton);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.addItemCategory);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.addItemQuantity);
             this.Controls.Add(this.label1);
@@ -166,7 +156,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox addItemQuantity;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox addItemCategory;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button addItemToDbButton;
         private System.Windows.Forms.Label label6;

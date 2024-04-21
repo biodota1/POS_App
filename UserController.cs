@@ -6,16 +6,39 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace OOP2_POS
 {
     public class UserController
     {
-        private const string connString = @"Data Source= EARTH137\SQLEXPRESS;Initial Catalog= POS;Integrated Security=True;";
+        private const string database = @"BIODOTA\SQLEXPRESS";
 
-        public void GetAllUsers(ListView listview)
+        private const string table = "POSUsers";
+
+        private const string connString = "Data Source= " + database + ";Initial Catalog= POS; Integrated Security=True;";
+
+        public class User
         {
-            string query = "SELECT Email, Username, Role FROM Users";
+            public string Email { get; set; }
+            public string Username { get; set; }
+            public string Password { get; set; }
+            public string Role { get; set; }
+
+            public User(string email, string username, string password, string role)
+            {
+                Email = email;
+                Username = username;
+                Password = password;
+                Role = role;
+            }
+        }
+
+        public List<User> GetAllUsers()
+        {
+            List<User> users = new List<User>();
+
+            string query = $"SELECT Email, Username, Password, Role FROM {table}";
 
             using (SqlConnection connection = new SqlConnection(connString))
             {
@@ -26,19 +49,15 @@ namespace OOP2_POS
                         connection.Open();
                         SqlDataReader reader = command.ExecuteReader();
 
-                        listview.Columns.Clear();
-                        listview.Items.Clear();
-
-
-                        listview.Columns.Add("Username");
-                        listview.Columns.Add("Email");
-                        listview.Columns.Add("Role");
                         while (reader.Read())
                         {
-                            ListViewItem item = new ListViewItem(reader["Username"].ToString());
-                            item.SubItems.Add(reader["Email"].ToString());
-                            item.SubItems.Add(reader["Role"].ToString());
-                            listview.Items.Add(item);
+                            string email = reader.GetString(0);
+                            string username = reader.GetString(1);
+                            string password = reader.GetString(2);
+                            string role = reader.GetString(3);
+
+                            User user = new User(email, username, password, role);
+                            users.Add(user);
 
                         }
 
@@ -50,6 +69,7 @@ namespace OOP2_POS
                     }
                 }
             }
+            return users;
         }
 
         public void CreateUser(string email, string username, string password)
@@ -62,7 +82,7 @@ namespace OOP2_POS
             try
             {
                 conn.Open();
-                string sqlQuery = $"Insert Into Users (Email, Username, Password) Values(N'{email}','{username}','{hashedPassword}')";
+                string sqlQuery = $"Insert Into {table} (Email, Username, Password) Values(N'{email}','{username}','{hashedPassword}')";
 
                 using (SqlCommand cmd = new SqlCommand(sqlQuery, conn))
                 {
@@ -81,7 +101,7 @@ namespace OOP2_POS
         {
             SqlConnection conn = new SqlConnection(connString);
             {
-                string query = "UPDATE Users SET UserName = @UpdatedUserName, Email = @Email WHERE Username = @Username";
+                string query = $"UPDATE {table} SET UserName = @UpdatedUserName, Email = @Email WHERE Username = @Username";
 
                 conn.Open();
                 using (SqlCommand command = new SqlCommand(query, conn))
@@ -104,7 +124,7 @@ namespace OOP2_POS
 
         public void DeleteUser(string username)
         {
-            string query = "DELETE FROM Users WHERE Username = @Username";
+            string query = $"DELETE FROM {table} WHERE Username = @Username";
 
             using (SqlConnection connection = new SqlConnection(connString))
             {
@@ -128,7 +148,7 @@ namespace OOP2_POS
         public bool ValidateUser(string username, string password)
         {
             string hashedPassword = HashPassword(password);
-            string query = "SELECT COUNT(*) FROM Users WHERE Username = @Username AND Password = @Password";
+            string query = $"SELECT COUNT(*) FROM {table} WHERE Username = @Username AND Password = @Password";
 
             using (SqlConnection connection = new SqlConnection(connString))
             {
@@ -142,17 +162,53 @@ namespace OOP2_POS
             }
         }
 
+        public string FindOne(string usernameRef)
+        {
+            string username = "";
+            using (SqlConnection connection = new SqlConnection(connString))
+            {
+                connection.Open();
+                string query = $"SELECT Username FROM {table} WHERE Username = @Username";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    // Add parameter for the username to find
+                    command.Parameters.AddWithValue("@Username", usernameRef);
+                    
+                    try
+                    {
+
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        if (reader.HasRows)
+                        {
+                            reader.Read();
+                            username = reader.GetString(0);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Username not found.");
+                        }
+
+                        reader.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
+                }
+
+            }
+            return username;
+        }
+
         public string UserRoles(string username)
         {
             string userRole = "";
-            string dbSource = @"EARTH137\SQLEXPRESS";
-            string db = "POS";
-            string connString = @"Data Source=" + dbSource + ";Initial Catalog=" + db + ";Integrated Security=True;";
 
             using (SqlConnection connection = new SqlConnection(connString))
             {
                 connection.Open();
-                string query = "SELECT Role FROM Users WHERE Username = @Username";
+                string query = $"SELECT Role FROM {table} WHERE Username = @Username";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     // Add parameter for the username to find

@@ -21,6 +21,7 @@ namespace OOP2_POS
         public AuthForm()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
 
             userInvalidInput.Hide();
             userInvalidInputIcon.Hide();
@@ -86,9 +87,25 @@ namespace OOP2_POS
 
                 if (controller.ValidateUser(username, password))
                 {
+                    AdminForm adminForm = new AdminForm();
+                    MemberForm memberForm = new MemberForm();
+
                     MessageBox.Show("Login Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    DialogResult = DialogResult.OK;
                     UserRole = controller.UserRoles(username);
+                    if (UserRole == "Admin")
+                    {
+                        this.Hide();
+                        adminForm.Show();
+                    }
+                    else if(UserRole == "Employee")
+                    {
+                        this.Hide();
+                        memberForm.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No User Found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
                 else
                 {
