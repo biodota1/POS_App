@@ -397,5 +397,9 @@ namespace OOP2_POS
 
         }
 
+        private void memberDashButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 } 

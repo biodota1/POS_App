@@ -97,17 +97,19 @@ namespace OOP2_POS
             }
         }
 
-        public void UpdateUser(string username, string upatedUsername, string updatedEmail)
+        public void UpdateUser(string username, string upatedUsername,string updatedPassword, string updatedEmail, string updatedRole)
         {
             SqlConnection conn = new SqlConnection(connString);
             {
-                string query = $"UPDATE {table} SET UserName = @UpdatedUserName, Email = @Email WHERE Username = @Username";
+                string query = $"UPDATE {table} SET UserName = @UpdatedUsername, Password = @UpdatedPassword, Email = @UpdatedEmail, Role = @UpdatedRole WHERE Username = @Username";
 
                 conn.Open();
                 using (SqlCommand command = new SqlCommand(query, conn))
                 {
-                    command.Parameters.AddWithValue("@UpdatedUserName", upatedUsername);
-                    command.Parameters.AddWithValue("@Email", updatedEmail);
+                    command.Parameters.AddWithValue("@UpdatedUsername", upatedUsername);
+                    command.Parameters.AddWithValue("@UpdatedPassword", updatedPassword);
+                    command.Parameters.AddWithValue("@UpdatedEmail", updatedEmail);
+                    command.Parameters.AddWithValue("@UpdatedRole", updatedRole);
                     command.Parameters.AddWithValue("@Username", username);
                     int rowsAffected = command.ExecuteNonQuery();
                     if (rowsAffected > 0)
@@ -126,23 +128,35 @@ namespace OOP2_POS
         {
             string query = $"DELETE FROM {table} WHERE Username = @Username";
 
-            using (SqlConnection connection = new SqlConnection(connString))
+            try
             {
-                connection.Open();
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlConnection connection = new SqlConnection(connString))
                 {
-                    command.Parameters.AddWithValue("@UserId", username);
-                    int rowsAffected = command.ExecuteNonQuery();
-                    if (rowsAffected > 0)
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        MessageBox.Show("User deleted successfully.");
-                    }
-                    else
-                    {
-                        MessageBox.Show("User not found or deletion failed.");
+                        command.Parameters.AddWithValue("@Username", username);
+                        int rowsAffected = command.ExecuteNonQuery();
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("User deleted successfully.");
+                            AdminForm form = new AdminForm();
+                            form.RefreshForm();
+                        }
+                        else
+                        {
+                            MessageBox.Show("User not found or deletion failed.");
+                        }
                     }
                 }
+
             }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+
+      
         }
 
         public bool ValidateUser(string username, string password)
@@ -242,7 +256,7 @@ namespace OOP2_POS
             return userRole;
         }
 
-        private string HashPassword(string toHashPassword)
+        public string HashPassword(string toHashPassword)
         {
             using (SHA256 sha256 = SHA256.Create())
             {

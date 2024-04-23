@@ -185,6 +185,7 @@
             this.memberDashButton.TabIndex = 0;
             this.memberDashButton.Text = "Cashier";
             this.memberDashButton.UseVisualStyleBackColor = false;
+            this.memberDashButton.Click += new System.EventHandler(this.memberDashButton_Click);
             // 
             // employeeTabControl
             // 

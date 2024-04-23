@@ -20,7 +20,7 @@ namespace OOP2_POS
             AdminForm adminForm = new AdminForm();
             MemberForm memberForm = new MemberForm();
             Application.Run(new AuthForm());
- /*           Application.Run(new AdminForm());*/
+     /*       Application.Run(new AdminForm());*/
 
 
         }

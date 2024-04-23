@@ -79,5 +79,10 @@ namespace OOP2_POS
             string selectedOption = comboBox.SelectedItem.ToString();
             category = selectedOption;
         }
+
+        private void editItemName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -124,6 +124,7 @@
             this.editItemName.Name = "editItemName";
             this.editItemName.Size = new System.Drawing.Size(227, 23);
             this.editItemName.TabIndex = 17;
+            this.editItemName.TextChanged += new System.EventHandler(this.editItemName_TextChanged);
             // 
             // EditItem
             // 
